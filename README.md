@@ -1,6 +1,10 @@
 [![Codeship Status for RichardKnop/go-mailchimp](https://codeship.com/projects/fdac3010-3acd-0134-e9c5-06456b66cf53/status?branch=master)](https://codeship.com/projects/166426)
 
-# Mailchimp
+[![GoDoc](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/RichardKnop/go-mailchimp)
+[![Travis Status for RichardKnop/go-mailchimp](https://travis-ci.org/RichardKnop/go-mailchimp.svg?branch=master)](https://travis-ci.org/RichardKnop/go-mailchimp)
+[![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://richardknop.github.io/donate/)
+
+# go-mailchimp
 
 A Golang SDK for Mailchimp API v3.
 
@@ -12,7 +16,7 @@ package main
 import (
 	"log"
 
-	mailchimp "github.com/RichardKnop/go-mailchimp"
+	"github.com/RichardKnop/go-mailchimp"
 )
 
 func main() {
