@@ -5,10 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"strings"
 )
 
 // CheckSubscription ...
 func (c *Client) CheckSubscription(listID string, email string) (*MemberResponse, error) {
+	// Mailchimp downcases emails anyway, so since email is sent as MD5, CheckSubscription with uppercased emails will fail even if subscription exists.
+	email = strings.ToLower(email)
+
 	// Hash email
 	emailMD5 := fmt.Sprintf("%x", md5.Sum([]byte(email)))
 	// Make request
