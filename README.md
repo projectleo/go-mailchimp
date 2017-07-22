@@ -1,12 +1,15 @@
-[![Codeship Status for RichardKnop/go-mailchimp](https://codeship.com/projects/fdac3010-3acd-0134-e9c5-06456b66cf53/status?branch=master)](https://codeship.com/projects/166426)
-
-[![GoDoc](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/RichardKnop/go-mailchimp)
-[![Travis Status for RichardKnop/go-mailchimp](https://travis-ci.org/RichardKnop/go-mailchimp.svg?branch=master)](https://travis-ci.org/RichardKnop/go-mailchimp)
-[![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://richardknop.github.io/donate/)
-
 # go-mailchimp
 
 A Golang SDK for Mailchimp API v3.
+
+[![Travis Status for RichardKnop/go-mailchimp](https://travis-ci.org/RichardKnop/go-mailchimp.svg?branch=master)](https://travis-ci.org/RichardKnop/go-mailchimp)
+[![godoc for RichardKnop/go-mailchimp](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/RichardKnop/go-mailchimp)
+[![goreportcard for RichardKnop/go-mailchimp](https://goreportcard.com/badge/github.com/RichardKnop/go-mailchimp)](https://goreportcard.com/report/RichardKnop/go-mailchimp)
+[![codecov for RichardKnop/go-mailchimp](https://codeship.com/projects/fdac3010-3acd-0134-e9c5-06456b66cf53/status?branch=master)](https://codeship.com/projects/166426)
+[![Codeship Status for RichardKnop/go-mailchimp](https://app.codeship.com/projects/35dc5880-71a7-0133-ec05-06b1c29ec1d7/status?branch=master)](https://app.codeship.com/projects/116961)
+
+[![Sourcegraph for RichardKnop/go-mailchimp](https://sourcegraph.com/github.com/RichardKnop/go-mailchimp/-/badge.svg)](https://sourcegraph.com/github.com/RichardKnop/go-mailchimp?badge)
+[![Donate Bitcoin](https://img.shields.io/badge/donate-bitcoin-orange.svg)](https://richardknop.github.io/donate/)
 
 ## Usage
 
