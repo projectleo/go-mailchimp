@@ -13,7 +13,7 @@ func (c *Client) Subscribe(listID string, email string, mergeFields map[string]i
 	// Make request
 	params := map[string]interface{}{
 		"email_address": email,
-		"status":        status.Subscribed,
+		"status":        status.Pending,
 		"merge_fields":  mergeFields,
 	}
 	resp, err := c.do(
