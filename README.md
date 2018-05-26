@@ -3,8 +3,6 @@
 A Golang SDK for Mailchimp API v3.
 
 [![Travis Status for RichardKnop/go-mailchimp](https://travis-ci.org/RichardKnop/go-mailchimp.svg?branch=master)](https://travis-ci.org/RichardKnop/go-mailchimp)
-[![godoc for RichardKnop/go-mailchimp](https://godoc.org/github.com/nathany/looper?status.svg)](http://godoc.org/github.com/RichardKnop/go-mailchimp)
-[![codecov for RichardKnop/go-mailchimp](https://codecov.io/gh/RichardKnop/go-mailchimp/branch/master/graph/badge.svg)](https://codecov.io/gh/RichardKnop/go-mailchimp)
 
 ## Usage
 
