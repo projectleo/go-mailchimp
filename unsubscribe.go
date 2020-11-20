@@ -9,7 +9,7 @@ import (
 )
 
 // Unsubscribe ...
-func (c *Client) Unsubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
+func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
 	params := map[string]interface{}{
 		"email_address": email,
