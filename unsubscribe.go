@@ -17,7 +17,7 @@ func (c *Client) Unsubscribe(listID string, email string, mergeFields map[string
 		"merge_fields":  mergeFields,
 	}
 	resp, err := c.do(
-		"POST",
+		"PUT",
 		fmt.Sprintf("/lists/%s/members/", listID),
 		&params,
 	)
