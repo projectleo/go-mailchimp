@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/projectboard/go-mailchimp/v3"
-	"github.com/projectboard/go-mailchimp/v3/status"
+	"github.com/projectleo/go-mailchimp/v3"
+	"github.com/projectleo/go-mailchimp/v3/status"
 	"github.com/stretchr/testify/assert"
 )
 

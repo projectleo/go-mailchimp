@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/projectboard/go-mailchimp/v3/status"
+	"github.com/projectleo/go-mailchimp/v3/status"
 )
 
 // Unsubscribe ...
