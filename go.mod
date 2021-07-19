@@ -1,4 +1,4 @@
-module github.com/Alexvallance/go-mailchimp/v3
+module github.com/projectboard/go-mailchimp/v3
 
 go 1.15
 
