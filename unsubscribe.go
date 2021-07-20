@@ -1,25 +1,23 @@
 package mailchimp
 
 import (
+	"crypto/md5"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-
-	"github.com/projectleo/go-mailchimp/v3/status"
 )
 
 // Unsubscribe ...
 func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	params := map[string]interface{}{
-		"email_address": email,
-		"status":        status.Unsubscribed,
-		"merge_fields":  mergeFields,
-	}
+	hash := md5.New()
+	hash.Write([]byte(email))
+	subscriberHash := hash.Sum(nil)
+
 	resp, err := c.do(
-		"PUT",
-		fmt.Sprintf("/lists/%s/members/", listID),
-		&params,
+		"POST",
+		fmt.Sprintf("/lists/%s/members/%s/actions/delete-permanent", listID, string(subscriberHash)),
+		nil,
 	)
 	if err != nil {
 		return nil, err
