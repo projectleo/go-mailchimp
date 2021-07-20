@@ -3,7 +3,6 @@ package mailchimp
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 )
@@ -35,9 +34,6 @@ func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string
 	if resp.StatusCode/100 == 2 {
 		// Unmarshal response into MemberResponse struct
 		memberResponse := new(MemberResponse)
-		if err := json.Unmarshal(data, memberResponse); err != nil {
-			return nil, err
-		}
 		return memberResponse, nil
 	}
 
