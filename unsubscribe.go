@@ -2,6 +2,7 @@ package mailchimp
 
 import (
 	"crypto/md5"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,7 +13,7 @@ func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string
 	// Make request
 	hash := md5.New()
 	hash.Write([]byte(email))
-	subscriberHash := hash.Sum(nil)
+	subscriberHash := hex.EncodeToString(hash.Sum(nil))
 
 	resp, err := c.do(
 		"POST",
