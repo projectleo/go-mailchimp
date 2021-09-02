@@ -18,7 +18,7 @@ func (c *Client) Subscribe(listID string, email string, mergeFields map[string]i
 	}
 	resp, err := c.do(
 		"POST",
-		fmt.Sprintf("/lists/%s/members/", listID),
+		fmt.Sprintf("/lists/%s", listID),
 		&params,
 	)
 	if err != nil {
