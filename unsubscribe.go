@@ -1,23 +1,24 @@
 package mailchimp
 
 import (
-	"crypto/md5"
-	"encoding/hex"
+	"encoding/json"
 	"fmt"
+	"github.com/projectleo/go-mailchimp/v3/status"
 	"io/ioutil"
 )
 
 // Unsubscribe ...
 func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	hash := md5.New()
-	hash.Write([]byte(email))
-	subscriberHash := hex.EncodeToString(hash.Sum(nil))
-
+	params := map[string]interface{}{
+		"email_address": email,
+		"status":        status.Unsubscribed,
+		"merge_fields":  mergeFields,
+	}
 	resp, err := c.do(
 		"POST",
-		fmt.Sprintf("/lists/%s/members/%s/actions/delete-permanent", listID, string(subscriberHash)),
-		nil,
+		fmt.Sprintf("/lists/%s", listID),
+		&params,
 	)
 	if err != nil {
 		return nil, err
@@ -34,6 +35,9 @@ func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string
 	if resp.StatusCode/100 == 2 {
 		// Unmarshal response into MemberResponse struct
 		memberResponse := new(MemberResponse)
+		if err := json.Unmarshal(data, memberResponse); err != nil {
+			return nil, err
+		}
 		return memberResponse, nil
 	}
 
