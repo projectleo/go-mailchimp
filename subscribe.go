@@ -11,7 +11,7 @@ import (
 // Subscribe ...
 func (c *Client) Subscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	params := map[string]interface{}{
+	members := map[string]interface{}{
 		"email_address": email,
 		"status":        status.Subscribed,
 		"merge_fields":  mergeFields,
@@ -19,7 +19,7 @@ func (c *Client) Subscribe(listID string, email string, mergeFields map[string]i
 	resp, err := c.do(
 		"POST",
 		fmt.Sprintf("/lists/%s", listID),
-		&params,
+		&members,
 	)
 	if err != nil {
 		return nil, err

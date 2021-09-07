@@ -10,7 +10,7 @@ import (
 // Unsubscribe ...
 func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	params := map[string]interface{}{
+	members := map[string]interface{}{
 		"email_address": email,
 		"status":        status.Unsubscribed,
 		"merge_fields":  mergeFields,
@@ -18,7 +18,7 @@ func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string
 	resp, err := c.do(
 		"POST",
 		fmt.Sprintf("/lists/%s", listID),
-		&params,
+		&members,
 	)
 	if err != nil {
 		return nil, err
