@@ -7,18 +7,30 @@ import (
 	"io/ioutil"
 )
 
+type Member struct {
+	EmailAddress string `json:"email_address"`
+	Status string `json:"status"`
+	MergeFields map[string]interface{} `json:"merge_fields"`
+}
 // Unsubscribe ...
 func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	members := map[string]interface{}{
-		"email_address": email,
-		"status":        status.Unsubscribed,
-		"merge_fields":  mergeFields,
+	body := struct{
+		Members []Member `json:"members"`
+	}{
+		Members: []Member{
+			{
+				EmailAddress: email,
+				Status: status.Unsubscribed,
+				MergeFields: mergeFields,
+			},
+		},
 	}
+
 	resp, err := c.do(
 		"POST",
 		fmt.Sprintf("/lists/%s", listID),
-		&members,
+		&body,
 	)
 	if err != nil {
 		return nil, err

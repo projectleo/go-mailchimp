@@ -11,15 +11,21 @@ import (
 // Subscribe ...
 func (c *Client) Subscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
-	members := map[string]interface{}{
-		"email_address": email,
-		"status":        status.Subscribed,
-		"merge_fields":  mergeFields,
+	body := struct{
+		Members []Member `json:"members"`
+	}{
+		Members: []Member{
+			{
+				EmailAddress: email,
+				Status: status.Subscribed,
+				MergeFields: mergeFields,
+			},
+		},
 	}
 	resp, err := c.do(
 		"POST",
 		fmt.Sprintf("/lists/%s", listID),
-		&members,
+		&body,
 	)
 	if err != nil {
 		return nil, err
