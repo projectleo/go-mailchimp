@@ -16,8 +16,10 @@ type Member struct {
 func (c *Client) UnSubscribe(listID string, email string, mergeFields map[string]interface{}) (*MemberResponse, error) {
 	// Make request
 	body := struct{
+		UpdateExisting bool `json:"update_existing"`
 		Members []Member `json:"members"`
 	}{
+		UpdateExisting: true,
 		Members: []Member{
 			{
 				EmailAddress: email,
